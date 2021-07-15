@@ -12,7 +12,7 @@ to install requests:
 pip3 install requests
 
 Usage:
-#python3 main.py -k <apikey> -o <orgname>
+#python3 main.py -k apikey -o orginization_name
 
 Future:
 create an XLS template that draws the data in
