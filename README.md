@@ -7,9 +7,6 @@ assumes you have activated Policy Objects in your Meraki Dashboard
 Requirments:
 Python 3 with the pathlib and requests libraries
 
-to install the libraries:
-pip3 install requests
-pip3 install pathlib
 
 Getting Started:
 To obtain your orginizations name (we will get the ID for you since sometimes we have multiple orgs!) 
