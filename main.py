@@ -6,8 +6,8 @@
 #assumes you have activated Policy Objects in your Meraki Dashboard
 #
 #Requirments:
-#Python3 and the requests library
-#to install requests:
+#Python3 and the requests and pathlib libraries
+#pip3 install pathlib
 #pip3 install requests
 #
 #Usage:
@@ -17,6 +17,7 @@
 
 
 import requests
+from pathlib import Path
 import json, sys, getopt
 
 
@@ -30,7 +31,7 @@ def getorgId(arg_orgname):
             return orgid
 
         else:
-            print("Exception: This Org does not match:" + ' ' + row['name'] + ' ' + 'Is not the orginization specified!')
+            print("Exception: I did not find an Orginization matching" + " " + str(arg_orgname))
             sys.exit(0)
 
 
@@ -75,6 +76,7 @@ def main(argv):
 
     arg_apikey = None
     arg_orgname = None
+    filename = 'obj_export.json'
 
     try:
         opts, args = getopt.getopt(argv, 'k:o:')
@@ -101,8 +103,12 @@ def main(argv):
 
     #polobjects_json = json.dumps(polobjects, indent=4, sort_keys=True)
 
-    with open('obj_export.json', 'w', ) as jsonFile:
+    inpath = Path(filename)
+    with inpath.open('w') as jsonFile:
         json.dump(polobjects, jsonFile, indent=4, sort_keys=True)
+
+    #with open('obj_export.json', 'w', ) as jsonFile:
+        #json.dump(polobjects, jsonFile, indent=4, sort_keys=True)
 
 
 if __name__ == '__main__':
