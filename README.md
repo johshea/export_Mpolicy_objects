@@ -11,9 +11,7 @@ to install the libraries:
 pip3 install requests
 pip3 install pathlib
 
-Required Variables:
-API Key, Orginization Name
-
+Getting Started:
 To obtain your orginizations name (we will get the ID for you since sometimes we have multiple orgs!) 
 navigate to Orginization -> Settings -> Name
 
