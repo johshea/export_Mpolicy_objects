@@ -12,9 +12,6 @@
 #
 #Usage:
 #python3 main.py -k <apikey> -o <orgname>
-#
-#Future:
-#create an XLS template that draws the data in
 ###################################################################################################
 
 
@@ -27,13 +24,15 @@ def getorgId(arg_orgname):
     org_response = requests.request("GET", f'{m_baseUrl}/organizations/', headers=m_headers)
     org = org_response.json()
     for row in org:
-        if row['name'] == arg_orgname:
+        if row['name'].lower() == arg_orgname.lower():
             orgid = row['id']
             print("Org" + " " + row['name'] + " " + "found.")
+            return orgid
+
         else:
             print("Exception: This Org does not match:" + ' ' + row['name'] + ' ' + 'Is not the orginization specified!')
+            sys.exit(0)
 
-    return orgid
 
 
 
@@ -72,6 +71,7 @@ def main(argv):
     global m_baseUrl
     global m_headers
     global arg_orgname
+    global orgid
 
     arg_apikey = None
     arg_orgname = None
