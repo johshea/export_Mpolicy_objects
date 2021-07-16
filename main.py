@@ -57,15 +57,9 @@ def getpolobjects(orgid):
 
        return(results)
 
-    # print (len(results))
     except:
         print('ERROR 02: Unable to contact Meraki cloud')
         print('API response: {}'.format(r.status_code))
-
-
-
-#def getpolobj()
-
 
 def main(argv):
     global arg_apikey
@@ -97,8 +91,10 @@ def main(argv):
     m_headers = {'X-Cisco-Meraki-API-Key': arg_apikey}
     m_baseUrl = 'https://api.meraki.com/api/v1'
 
+    # Get Dashboard org id from supplied name value
     orgid = getorgId(arg_orgname)
 
+    #get defined policy objects for the orginization
     polobjects = getpolobjects(orgid)
 
     #polobjects_json = json.dumps(polobjects, indent=4, sort_keys=True)
@@ -106,9 +102,6 @@ def main(argv):
     inpath = Path(filename)
     with inpath.open('w') as jsonFile:
         json.dump(polobjects, jsonFile, indent=4, sort_keys=True)
-
-    #with open('obj_export.json', 'w', ) as jsonFile:
-        #json.dump(polobjects, jsonFile, indent=4, sort_keys=True)
 
 
 if __name__ == '__main__':
