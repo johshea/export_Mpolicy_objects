@@ -26,9 +26,8 @@ https://documentation.meraki.com/General_Administration/Other_Topics/Cisco_Merak
 To Activate Policy Objects in your Orginization:
 https://documentation.meraki.com/MX/Firewall_and_Traffic_Shaping/Network_Objects_Configuration_Guide
 
-Script Usage:
+Usage:
 python3 main.py -k apikey -o orginization_name
-
 
 LICENSE
 Provided under Cisco Sample Code License, for details see LICENSE
