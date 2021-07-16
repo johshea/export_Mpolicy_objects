@@ -4,8 +4,16 @@ it will autmatically create the output file if not present or rewrite the file o
 
 assumes you have activated Policy Objects in your Meraki Dashboard
 
-Requirments:
-Python 3 with the pathlib and requests libraries
+Contacts:
+John Shea (Johshea@cisco.com)
+
+Solution Components:
+Python 3.8
+requests
+pathlib
+
+Solution Overview:
+When run we take the provided API key and Orginization name and instantly retrieve the matching ORG ID. This ORG ID is then used pull the Policy Objects from the Meraki API and save them into a JSON formatted file, for review or ingestion into another application. If the obj_export.json file does not exist the script will create it for you. If a currently populated file does exist the data will be replaced by the current retrieval.
 
 
 Getting Started:
