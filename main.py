@@ -31,8 +31,8 @@ def getorgId(arg_orgname):
             return orgid
 
         else:
-            print("Exception: I did not find an Orginization matching" + " " + str(arg_orgname))
-            sys.exit(0)
+            print("Searching for Org" + " " + str(arg_orgname))
+
 
 
 
